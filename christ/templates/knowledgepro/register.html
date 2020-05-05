@@ -1,0 +1,29 @@
+{% extends 'knowledgepro/base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="container">
+  <h1>Christite Registration</h1>
+
+    {% if registered %}
+      <h1>Dear Christite, <br> you have successfully registered to our site! :)</h1>
+
+
+    {% else %}
+      <div class="jumbotron">
+
+          <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{details_form.as_p}}
+            <input type="submit" name="" value="sign up">
+
+          </form>
+
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
